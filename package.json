@@ -7,5 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "skipper": "^0.5.9",
+    "xml": "^1.0.1"
+  }
 }
