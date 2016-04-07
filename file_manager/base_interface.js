@@ -9,9 +9,9 @@ var fileManager = function(options){
 
 }
 
-FileManager.prototype.getFolders = function(){};
-FileManager.prototype.getFoldersAndFiles = function(){};
-FileManager.prototype.createFolder = function(){};
-FileManager.prototype.fileUpload = function(){};
+fileManager.prototype.getFolders = function(){};
+fileManager.prototype.getFoldersAndFiles = function(){};
+fileManager.prototype.createFolder = function(){};
+fileManager.prototype.fileUpload = function(){};
 
-module.exports = FileManager;
+module.exports = fileManager;
