@@ -1,8 +1,7 @@
 var escape = require('escape-html');
 var xml = require('xml')
-var util = require('./util')
 
-var browserXml = new function(){
+var xmlPreparing = new function(){
 
   this.prepareFoldersObject = function(folders){
     var xmlFolders = []
@@ -37,7 +36,8 @@ var browserXml = new function(){
     return {Error:[{_attr: _attr}]}
   }
 }
-module.exports = browserXml
+
+module.exports = xmlPreparing
 
 
 
