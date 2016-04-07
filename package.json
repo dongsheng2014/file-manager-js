@@ -1,0 +1,11 @@
+{
+  "name": "file-manager-js",
+  "version": "1.0.0",
+  "description": "Nodejs implementation of FileManager in CKEditor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
