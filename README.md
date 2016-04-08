@@ -20,6 +20,7 @@ module.exports = function (app) {
   app.post('/upload_url', browser.upload);
 }
 ```
+
 In code above we have defined two routes, which we will use in CKEditor intialization code.
 So first, that we need is download and put CKEditor in desired folder, for example /path_to_ckeditor/.
 Then we need download latest version of FCKeditor (2.6.11) https://sourceforge.net/projects/fckeditor/files/FCKeditor/, copy filemanager folder to ckeditor plugins directory. 
