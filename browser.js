@@ -1,6 +1,7 @@
-var fileManagerFactory = require('./file_manager/xml_preparing');
-var fileManagerFactory = require('./file_manager/file_manager_factory');
-var browserCommand = new fileManagerFactory.build({fs:'disk'})
+var util = require('./file_manager/utils');
+var xml = require('./file_manager/xml_preparing');
+var FileManagerFactory = require('./file_manager/file_manager_factory');
+var browserCommand = new FileManagerFactory({fs:'disk'})
 
 function strtr(str){
   str = str.replace(/\\\\/g, '\\\\');

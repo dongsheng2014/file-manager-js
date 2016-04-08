@@ -5,13 +5,13 @@
  * @author Valya Grinchik valentina.grinchik@itexus.com
  */
 
-var fileManager = function(options){
+var FileManager = function(options){
 
 }
 
-fileManager.prototype.getFolders = function(){};
-fileManager.prototype.getFoldersAndFiles = function(){};
-fileManager.prototype.createFolder = function(){};
-fileManager.prototype.fileUpload = function(){};
+FileManager.prototype.getFolders = function(){};
+FileManager.prototype.getFoldersAndFiles = function(){};
+FileManager.prototype.createFolder = function(){};
+FileManager.prototype.fileUpload = function(){};
 
-module.exports = fileManager;
+module.exports = FileManager;

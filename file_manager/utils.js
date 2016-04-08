@@ -7,10 +7,6 @@ var BASE_FILES_PATH = path.resolve(__dirname + '/../../../public/');
 var browserUtil = new function(){
   var self = this;
 
-  this.getBaseFilesPath = function(){
-    return BASE_FILES_PATH;
-  }
-
   this.isAllowedCommand = function( command ){
     return config['ConfigAllowedCommands'].join(',').indexOf( command ) >= 0;
   }
@@ -28,6 +24,14 @@ var browserUtil = new function(){
     res.setHeader('Content-Type', 'text/xml; charset=utf-8');
   }
 
+
+
+
+
+
+  this.getBaseFilesPath = function(){
+    return BASE_FILES_PATH;
+  }
 
   this.getFilesAndFolders = function(dir){
     var folders = [] ;

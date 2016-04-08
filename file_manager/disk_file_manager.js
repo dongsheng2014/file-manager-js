@@ -1,11 +1,17 @@
 var xml = require('./xml_preparing')
-var util = require('./util')
+var util = require('./utils')
+var path = require('path')
 
-var fileManager = require('./base_interface');
-var diskFileManager = function(options){}
-diskFileManager.prototipe = new fileManager({});
 
-diskFileManager.prototipe.getFolders = function( $resourceType, $currentFolder ){
+
+var FileManager = require('./base_interface');
+var DiskFileManager = function(options){}
+DiskFileManager.prototipe = new FileManager({});
+
+
+
+
+DiskFileManager.prototype.getFolders = function( $resourceType, $currentFolder ){
   // Map the virtual path to the local server path.
   var serverDir = util.serverMapFolder( $resourceType, $currentFolder, 'GetFolders' ) ;
   var foldersAndFiles = util.getFilesAndFolders(serverDir);
@@ -13,7 +19,7 @@ diskFileManager.prototipe.getFolders = function( $resourceType, $currentFolder )
   return [xmlFoldersObj] 
 }
 
-diskFileManager.prototipe.getFoldersAndFiles = function( resourceType, currentFolder ){
+DiskFileManager.prototype.getFoldersAndFiles = function( resourceType, currentFolder ){
   // Map the virtual path to the local server path.
   var serverDir = util.serverMapFolder( resourceType, currentFolder, 'GetFoldersAndFiles' ) ;
   var foldersAndFiles = util.getFilesAndFolders(serverDir);
@@ -22,7 +28,7 @@ diskFileManager.prototipe.getFoldersAndFiles = function( resourceType, currentFo
   return [xmlFoldersObj, xmlFilesObj] 
 }
 
-diskFileManager.prototipe.createFolder = function( resourceType, currentFolder, newFolderName ){
+DiskFileManager.prototype.createFolder = function( resourceType, currentFolder, newFolderName ){
   var errorNumber = '0';
   var errorMsg    = '';
 
@@ -45,7 +51,7 @@ diskFileManager.prototipe.createFolder = function( resourceType, currentFolder, 
 }
 
 
-diskFileManager.prototipe.fileUpload = function(req, resourceType, currentFolder, sCommand, callback ){
+DiskFileManager.prototype.fileUpload = function(req, resourceType, currentFolder, sCommand, callback ){
 
   var errorNumber = 0 ;
   var fileName = '' ;
@@ -73,4 +79,4 @@ diskFileManager.prototipe.fileUpload = function(req, resourceType, currentFolder
 
 
 
-module.exports = diskFileManager
+module.exports = DiskFileManager

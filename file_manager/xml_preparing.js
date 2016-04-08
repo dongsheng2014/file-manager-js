@@ -1,6 +1,6 @@
 var escape = require('escape-html');
 var xml = require('xml')
-
+var util = require('./utils')
 var xmlPreparing = new function(){
 
   this.prepareFoldersObject = function(folders){

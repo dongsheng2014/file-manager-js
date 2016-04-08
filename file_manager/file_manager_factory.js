@@ -1,19 +1,20 @@
 var extend = require('util')._extend;
-var diskFileManager = require('./disk_file_manager');
-var s3FileManager = require('./s3_file_manager');
+var DiskFileManager = require('./disk_file_manager');
+var S3FileManager = require('./s3_file_manager');
 
 
 
-var fileManagerFactory = function(options){
+var FileManagerFactory = function(options){
   this.options = options;
+  return this.build();
 }
 
-fileManagerFactory.prototipe.build = function(){
+FileManagerFactory.prototype.build = function(){
   if(this.options.fs == 's3'){
-    return new s3FileManager();
+    return new S3FileManager();
   }else{
-    return new diskFileManager();
+    return new DiskFileManager();
   }
 }
 
-module.exports = fileManagerFactory
+module.exports = FileManagerFactory
