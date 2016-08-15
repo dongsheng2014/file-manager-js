@@ -7,7 +7,7 @@ This package provides Node.js implementation of FCKEditor’s File Manager (File
 ## Installation
 
 ```
-$ npm install file-manager-js --save
+$ npm install https://github.com/itexussoft/file-manager-js.git --save
 ```
 
 ## Usage
