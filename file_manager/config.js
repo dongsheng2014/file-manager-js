@@ -20,7 +20,7 @@ var defaultConfig = {
   ForceSingleExtension: true,
   SecureImageUploads: true,
   ConfigAllowedCommands: ['QuickUpload', 'FileUpload', 'GetFolders', 'GetFoldersAndFiles', 'CreateFolder'],
-  ConfigAllowedTypes: ['File', 'ImagemainConfig.user_file_path, 'Flash', 'Media'],
+  ConfigAllowedTypes: ['File', 'Image', 'Flash', 'Media'],
   HtmlExtensions: ["html", "htm", "xml", "xsd", "txt", "js"],
   ChmodOnUpload: 0777,
   ChmodOnFolderCreate: 0777,
