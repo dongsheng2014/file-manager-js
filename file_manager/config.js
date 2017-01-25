@@ -1,14 +1,26 @@
-var USER_FILES_PATH = '/images/products/';
-var USER_FILES_ABSOLUTE_PATH = '';
+var path = require('path');
+var rootPath = path.resolve(process.cwd());
 
-module.exports = {
+var appFileManagerConfig = {};
+try{
+  appFileManagerConfig = require(`${rootPath}/config/file_manager.json`);
+}catch(err){}
+
+var mainConfig = Object.assign({
+  user_file_path = '/images/products/',
+  user_file_abs_path = ''
+}, appFileManagerConfig);
+
+
+
+var defaultConfig = {
   Enabled: true,
-  UserFilesPath: USER_FILES_PATH,
-  UserFilesAbsolutePath: USER_FILES_ABSOLUTE_PATH,
+  UserFilesPath: mainConfig.user_file_path,
+  UserFilesAbsolutePath: mainConfig.user_file_abs_path,
   ForceSingleExtension: true,
   SecureImageUploads: true,
   ConfigAllowedCommands: ['QuickUpload', 'FileUpload', 'GetFolders', 'GetFoldersAndFiles', 'CreateFolder'],
-  ConfigAllowedTypes: ['File', 'Image', 'Flash', 'Media'],
+  ConfigAllowedTypes: ['File', 'ImagemainConfig.user_file_path, 'Flash', 'Media'],
   HtmlExtensions: ["html", "htm", "xml", "xsd", "txt", "js"],
   ChmodOnUpload: 0777,
   ChmodOnFolderCreate: 0777,
@@ -25,27 +37,29 @@ module.exports = {
     Media: []
   },
   FileTypesPath: {
-    File: USER_FILES_PATH + 'file/',
-    Image: USER_FILES_PATH + 'image/',
-    Flash: USER_FILES_PATH + 'flash/',
-    Media: USER_FILES_PATH + 'media/',
+    File: mainConfig.user_file_path + 'file/',
+    Image: mainConfig.user_file_path + 'image/',
+    Flash: mainConfig.user_file_path + 'flash/',
+    Media: mainConfig.user_file_path + 'media/',
   },
   FileTypesAbsolutePath:{
-    File: USER_FILES_ABSOLUTE_PATH == '' ? '' : USER_FILES_ABSOLUTE_PATH +'file/',
-    Image: USER_FILES_ABSOLUTE_PATH == '' ? '' : USER_FILES_ABSOLUTE_PATH + 'image/',
-    Flash: USER_FILES_ABSOLUTE_PATH == '' ? '' : USER_FILES_ABSOLUTE_PATH + 'flash/',
-    Media: USER_FILES_ABSOLUTE_PATH == '' ? '' : USER_FILES_ABSOLUTE_PATH + 'media/',
+    File: mainConfig.user_file_abs_path == '' ? '' : mainConfig.user_file_abs_path +'file/',
+    Image: mainConfig.user_file_abs_path == '' ? '' : mainConfig.user_file_abs_path + 'image/',
+    Flash: mainConfig.user_file_abs_path == '' ? '' : mainConfig.user_file_abs_path + 'flash/',
+    Media: mainConfig.user_file_abs_path == '' ? '' : mainConfig.user_file_abs_path + 'media/',
   },
   QuickUploadPath: {
-    File: USER_FILES_PATH + 'file/',
-    Image: USER_FILES_PATH + 'image/',
-    Flash: USER_FILES_PATH + 'flash/',
-    Media: USER_FILES_PATH + 'media/',
+    File: mainConfig.user_file_path + 'file/',
+    Image: mainConfig.user_file_path + 'image/',
+    Flash: mainConfig.user_file_path + 'flash/',
+    Media: mainConfig.user_file_path + 'media/',
   },
   QuickUploadAbsolutePath: {
-    File: USER_FILES_ABSOLUTE_PATH,
-    Image: USER_FILES_ABSOLUTE_PATH,
-    Flash: USER_FILES_ABSOLUTE_PATH,
-    Media: USER_FILES_ABSOLUTE_PATH,
+    File: mainConfig.user_file_abs_path,
+    Image: mainConfig.user_file_abs_path,
+    Flash: mainConfig.user_file_abs_path,
+    Media: mainConfig.user_file_abs_path,
   }
 }
+
+module.exports = defaultConfig;
