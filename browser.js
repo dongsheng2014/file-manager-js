@@ -7,7 +7,7 @@ var path = require('path');
 var rootPath = path.resolve(process.cwd());
 var config = require('./file_manager/config');
 
-util.prepareDirs(rootPath, ['/public/'+config.user_file_path]);
+util.prepareDirs(rootPath, ['/public/'+ config.user_file_path]);
 
 function strtr(str){
   str = str.replace(/\\\\/g, '\\\\');

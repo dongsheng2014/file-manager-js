@@ -60,4 +60,4 @@ var defaultConfig = {
   }
 }
 
-module.exports = defaultConfig;
+module.exports = Object.assign({}, defaultConfig, mainConfig);
