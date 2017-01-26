@@ -3,6 +3,12 @@ var xml = require('./file_manager/xml_preparing');
 var FileManagerFactory = require('./file_manager/file_manager_factory');
 var browserCommand = new FileManagerFactory({fs:'disk'})
 
+var path = require('path');
+var rootPath = path.resolve(process.cwd());
+var config = require('./file_manager/config');
+
+util.prepareDirs(rootPath, ['/public/'+config.user_file_path]);
+
 function strtr(str){
   str = str.replace(/\\\\/g, '\\\\');
   str = str.replace(/\"/g, '\\"');

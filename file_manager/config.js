@@ -1,5 +1,4 @@
 var path = require('path');
-var utils = require('./utils');
 var rootPath = path.resolve(process.cwd());
 
 var appFileManagerConfig = {};
@@ -11,8 +10,6 @@ var mainConfig = Object.assign({
   user_file_path : '/images/products/',
   user_file_abs_path : ''
 }, appFileManagerConfig);
-
-utils.prepareDirs(rootPath, [mainConfig.user_file_path]);
 
 var defaultConfig = {
   Enabled: true,
