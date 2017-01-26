@@ -24,10 +24,29 @@ var browserUtil = new function(){
     res.setHeader('Content-Type', 'text/xml; charset=utf-8');
   }
 
+  this.isDirExists = function(dir){
+    try{
+      return fs.statSync(dir).isDirectory();
+    }catch (err){
+      return false;
+    }
+  }
 
+  this.isFileExists = function(filepath){
+    try{
+      return fs.statSync(filepath).isFile();
+    }catch (err){
+      return false;
+    }
+  }
 
-
-
+  this.prepareDirs = function(root, dirsArray){
+    dirsArray.map(function(dir){
+      if (!self.isDirExists(root + dir)){
+        fs.mkdirSync(root + dir);
+      }
+    })
+  }
 
   this.getBaseFilesPath = function(){
     return BASE_FILES_PATH;
