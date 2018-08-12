@@ -121,10 +121,11 @@ module.exports = new function(){
           break ;
       }
 
+      var namespace = config.envNamespace ? process.env[config.envNamespace] : '';
 
       res.send("<script type='text/javascript'>\
       (function(){var d=document.domain;while (true){try{var A=window.parent.document.domain;break;}catch(e) {};d=d.replace(/.*?(?:\.|$)/,'');if (d.length==0) break;try{document.domain=d;}catch (e){break;}}})();\
-      window.parent.CKEDITOR.tools.callFunction('" + CKEcallback + "','" + strtr(result.fileUrl) + "', '" + strtr( msg) + "');\
+      window.parent.CKEDITOR.tools.callFunction('" + CKEcallback + "','" + namespace + strtr(result.fileUrl) + "', '" + strtr( msg) + "');\
       </script>")
     });
   }
